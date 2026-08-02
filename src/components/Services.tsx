@@ -1,4 +1,3 @@
-import { PhotoSlot } from './PhotoSlot'
 import { AgentSample } from './AgentSample'
 
 const SERVICES = [
@@ -26,9 +25,6 @@ export function Services() {
       <div className="services-grid">
         {SERVICES.map((service) => (
           <div key={service.title}>
-            <figure className="grayscale">
-              <PhotoSlot label={service.photo} />
-            </figure>
             <h3>{service.title}</h3>
             <p>{service.body}</p>
           </div>
