@@ -170,6 +170,104 @@
   margin-top: 32px;
 }
 
+/* — agent samples — */
+.agent-samples-section {
+  margin-top: 80px;
+  padding-top: 64px;
+  border-top: var(--rule);
+}
+
+.agent-samples-section h3 {
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.agent-samples-section > p {
+  font-size: 17px;
+  line-height: 29px;
+  max-width: 56ch;
+  color: var(--color-text-body);
+  margin: 0 0 40px;
+}
+
+.agent-samples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(32px, 4vw, 48px);
+  margin-top: 40px;
+}
+
+.agent-card {
+  padding: 28px;
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  background: var(--color-bg);
+  transition: all 0.2s ease;
+}
+
+.agent-card:hover {
+  border-color: var(--color-accent-700);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.agent-header {
+  margin-bottom: 16px;
+}
+
+.agent-name {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.agent-description {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--color-text-body);
+}
+
+.agent-capabilities {
+  margin: 20px 0 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.capabilities-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin-bottom: 10px;
+}
+
+.agent-capabilities ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.agent-capabilities li {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.agent-usecase {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-text-body);
+}
+
 /* Striped stand-in until real photography lands; a dropped <img> replaces it. */
 .photo-slot {
   display: grid;
