@@ -118,11 +118,11 @@
 .band h2 {
   font-size: clamp(30px, 3.9vw, 48px);
   line-height: 1.08;
-  max-width: 22ch;
+  max-width: 32ch;
 }
 
 .thesis {
-  padding: 44px var(--pad-x) 0;
+  padding: 56px var(--pad-x) 72px;
 }
 
 .thesis p {
@@ -133,139 +133,242 @@
   color: var(--color-text-body);
 }
 
-/* — what we do — */
-.services {
-  padding: 72px 0 40px;
+.thesis p + p {
+  margin-top: 24px;
 }
 
-.services .kicker {
-  margin-bottom: 36px;
+/* The line the section lands on — set in the heading face, still quiet. */
+.thesis .thesis-close {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
 }
 
-.services-grid {
+.thesis p + .thesis-close {
+  margin-top: 36px;
+}
+
+/* — why now — full-bleed and tonally separate, so the argument visibly turns */
+.why-now {
+  background: var(--color-surface);
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+}
+
+.why-now-inner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 32px 88px;
+  padding-block: 80px;
+}
+
+.why-now-head h2 {
+  margin: 14px 0 0;
+  font-size: clamp(26px, 2.9vw, 34px);
+  line-height: 1.2;
+}
+
+.why-now-body p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 30px;
+  max-width: 58ch;
+  color: var(--color-text-body);
+}
+
+.why-now-body p + p {
+  margin-top: 24px;
+}
+
+.objection {
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: var(--rule);
+}
+
+.objection-q {
+  margin: 22px 0 24px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 21px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+/* — what it looks like — */
+.work {
+  padding: 80px 0 40px;
+}
+
+.work-head {
+  margin: 20px 0 48px;
+  font-size: clamp(26px, 2.9vw, 34px);
+  line-height: 1.2;
+  max-width: 30ch;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: clamp(36px, 4vw, 56px);
 }
 
-.services-grid h3 {
-  margin: 0 0 14px;
+.work-card {
+  border-top: var(--rule);
+  padding-top: 24px;
+}
+
+.work-trade {
+  margin: 0 0 20px;
   font-size: 24px;
   line-height: 30px;
   letter-spacing: -0.01em;
 }
 
-.services-grid p {
+.work-swap {
   margin: 0;
+}
+
+.work-swap dt {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.work-swap dd {
+  margin: 6px 0 0;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 27px;
   color: var(--color-text-secondary);
 }
 
-.services-grid figure {
-  margin: 0 0 24px;
+.work-swap dd + dt {
+  margin-top: 20px;
 }
 
-.services-divider {
-  margin-top: 32px;
-}
-
-/* — agent samples — */
-.agent-samples-section {
-  margin-top: 80px;
-  padding-top: 64px;
-  border-top: var(--rule);
-}
-
-.agent-samples-section h3 {
-  font-size: clamp(24px, 2.5vw, 32px);
-  line-height: 1.25;
-  margin: 0 0 16px;
+/* The payoff line carries the section — give it the accent and the weight. */
+.work-swap .work-after {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 18px;
+  line-height: 27px;
   letter-spacing: -0.01em;
+  color: var(--color-accent-700);
 }
 
-.agent-samples-section > p {
-  font-size: 17px;
-  line-height: 29px;
-  max-width: 56ch;
-  color: var(--color-text-body);
-  margin: 0 0 40px;
-}
-
-.agent-samples {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: clamp(32px, 4vw, 48px);
-  margin-top: 40px;
-}
-
-.agent-card {
-  padding: 28px;
-  border: 1px solid var(--color-divider);
-  border-radius: 8px;
-  background: var(--color-bg);
-  transition: all 0.2s ease;
-}
-
-.agent-card:hover {
-  border-color: var(--color-accent-700);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.agent-header {
-  margin-bottom: 16px;
-}
-
-.agent-name {
-  margin: 0;
-  font-size: 20px;
-  line-height: 26px;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
-}
-
-.agent-description {
-  margin: 12px 0 0;
+.work-how {
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-divider);
   font-size: 15px;
   line-height: 26px;
   color: var(--color-text-body);
 }
 
-.agent-capabilities {
-  margin: 20px 0 0;
-  padding: 16px 0;
-  border-top: 1px solid var(--color-divider);
-  border-bottom: 1px solid var(--color-divider);
+/* — the delivery model, demoted to a strip under the outcomes — */
+.model {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: var(--rule);
 }
 
-.capabilities-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-accent-700);
-  margin-bottom: 10px;
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px clamp(36px, 4vw, 56px);
+  margin-top: 28px;
 }
 
-.agent-capabilities ul {
+.model-item h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.model-item p {
   margin: 0;
-  padding-left: 20px;
-  list-style: disc;
-}
-
-.agent-capabilities li {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 15px;
+  line-height: 26px;
   color: var(--color-text-secondary);
-  margin-bottom: 6px;
 }
 
-.agent-usecase {
+/* — proof — */
+.proof {
+  padding: 56px 0;
+}
+
+.proof .kicker {
+  margin-bottom: 20px;
+}
+
+/* — pricing — */
+.pricing {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 32px 88px;
+  padding: 64px 0;
+}
+
+.pricing-head h2 {
+  margin: 14px 0 0;
+  font-size: clamp(26px, 2.7vw, 32px);
+  line-height: 1.25;
+}
+
+.pricing-row + .pricing-row {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.pricing-row h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.pricing-row p {
   margin: 16px 0 0;
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--color-text-body);
+  font-size: 16px;
+  line-height: 28px;
+  max-width: 52ch;
+  color: var(--color-text-secondary);
+}
+
+/* — who we are — */
+.who {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 32px 88px;
+  padding: 64px 0 80px;
+}
+
+.who-photo {
+  margin: 0;
+}
+
+.who-body h2 {
+  margin: 14px 0 0;
+  font-size: clamp(26px, 2.7vw, 32px);
+  line-height: 1.25;
+}
+
+/* Unfilled content, deliberately obvious. See the TODO beside each one. */
+.slot {
+  margin: 20px 0 0;
+  padding: 16px 18px;
+  border: 1px dashed var(--color-divider);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  max-width: 58ch;
+  color: var(--color-text-muted);
 }
 
 /* Striped stand-in until real photography lands; a dropped <img> replaces it. */
@@ -438,10 +541,37 @@
 }
 
 @media (max-width: 900px) {
-  .honest {
+  .honest,
+  .why-now-inner,
+  .pricing,
+  .who {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+  }
+
+  .honest {
     padding: 56px 0 64px;
+  }
+
+  .why-now-inner {
+    padding-block: 56px;
+  }
+
+  .pricing {
+    padding: 56px 0;
+  }
+
+  .who {
+    padding: 56px 0 64px;
+  }
+
+  /* Keep the portrait from filling a phone screen on its own. */
+  .who-photo {
+    max-width: 320px;
+  }
+
+  .work {
+    padding-top: 64px;
   }
 
   .band,
