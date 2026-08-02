@@ -4,6 +4,7 @@ import { TheCase } from './components/TheCase'
 import { Services } from './components/Services'
 import { Audience } from './components/Audience'
 import { HonestVersion } from './components/HonestVersion'
+import { Faq } from './components/Faq'
 import { Closing } from './components/Closing'
 import { SiteFooter } from './components/SiteFooter'
 
@@ -23,6 +24,8 @@ function App() {
           <Audience />
           <hr className="hr" />
           <HonestVersion />
+          <hr className="hr" />
+          <Faq />
         </div>
         <Closing />
       </main>
