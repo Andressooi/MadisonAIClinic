@@ -5,8 +5,8 @@ export function Hero() {
         <h1 className="headline">
           For forty years,
           <br /> technology has
-          <br /> favored scale.
-          <br /> This one doesn&rsquo;t.
+          <br /> favored large corporations.
+          <br /> AI levels the playing field.
         </h1>
         <p>
           AI puts a corporate back office inside a two-person shop, at a price a
