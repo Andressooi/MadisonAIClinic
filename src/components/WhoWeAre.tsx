@@ -8,12 +8,8 @@ export function WhoWeAre() {
       <figure className="who-photo grayscale">
         {/* TODO: replace with a real photograph. Working, not posed — at a
             client's counter beats a studio headshot. */}
-        <div
-          className="photo-slot"
-          role="img"
-          aria-label="Photo placeholder: the founder, on site"
-        >
-          <span className="photo-slot-label" aria-hidden="true">
+        <div className="photo-slot">
+          <span className="photo-slot-label">
             Drop a photo &mdash; the founder, on site
           </span>
         </div>
