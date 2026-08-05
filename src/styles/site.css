@@ -75,12 +75,14 @@
   color: var(--color-text-body);
 }
 
+/* The CTA follows the copy it belongs to. Pinning it to the bottom of the
+   panel stranded it well below the paragraph on tall heroes. */
 .hero-panel {
   border-left: var(--rule);
   padding: 96px var(--pad-x) 80px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: stretch;
 }
 
 .hero-panel h2 {

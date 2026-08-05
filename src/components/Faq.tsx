@@ -7,12 +7,12 @@ const FAQS = [
   {
     question: 'How much does AI automation cost for a small business?',
     answer:
-      'It depends on which jobs we automate first, so we don’t publish a flat rate. Every engagement starts with the free 90-minute consult, which ends in a written estimate of the savings and the cost — yours to keep even if you decide not to go ahead.',
+      'One flat rate per project, agreed in writing before anything is built, so the number does not move once we begin. Ongoing support is priced separately, month to month, and you can stop it whenever it stops earning its keep.',
   },
   {
-    question: 'What happens during the free consult?',
+    question: 'What happens during the demo?',
     answer:
-      'Ninety minutes at your business. We watch one real day of work and write down what AI would help with, what it wouldn’t, and what it would cost. There’s no cost, no obligation, and no pitch — if the honest answer is “not much yet,” we say so.',
+      'We show you the tools running on the kind of work your business does — quoting, intake, follow-up, reporting — and what they produce. There’s no cost, no obligation, and no pitch: if the honest answer is “not much yet,” we say so.',
   },
   {
     question: 'Do I need in-house technical staff to use this?',

@@ -3,4 +3,4 @@
  * Every other CTA routes to it, so there is a single place to wire up a
  * scheduler or contact form once the clinic's contact details exist.
  */
-export const CONSULT_HREF = '#consult'
+export const DEMO_HREF = '#demo'
