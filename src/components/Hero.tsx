@@ -3,15 +3,15 @@ export function Hero() {
     <section className="hero">
       <div className="hero-lede">
         <h1 className="headline">
-          AI automation,
-          <br /> installed on your
-          <br /> side of the counter.
+          For forty years,
+          <br /> technology has
+          <br /> favored large corporations.
+          <br /> AI levels the playing field.
         </h1>
         <p>
-          A Madison practice for small businesses: we set up Claude and the
-          automation around it, train your staff on it, and support it every
-          month after. Setup, training, support &mdash; that&rsquo;s the whole
-          offer.
+          AI puts a corporate back office inside a two-person shop, at a price a
+          two-person shop can pay. We are a Madison practice that installs it,
+          on your side of the counter.
         </p>
       </div>
 

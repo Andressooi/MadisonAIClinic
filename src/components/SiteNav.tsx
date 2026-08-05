@@ -5,8 +5,8 @@ export function SiteNav() {
     <nav className="nav" aria-label="Primary">
       <span className="nav-brand">MadisonAIClinic</span>
       <div className="nav-links">
-        <a href="#the-case">The case</a>
-        <a href="#services">Services</a>
+        <a href="#the-shift">The shift</a>
+        <a href="#why-now">Why now</a>
         <a href="#who-its-for">Who it&rsquo;s for</a>
         <a href="#faq">FAQ</a>
       </div>
