@@ -1,3 +1,5 @@
+import { DEMO_HREF } from '../lib/demo'
+
 export function Hero() {
   return (
     <section className="hero">
@@ -15,7 +17,7 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="hero-panel" id="demo">
+      <div className="hero-panel">
         <div>
           <span className="kicker">Start here</span>
           <h2>A free demo</h2>
@@ -27,10 +29,9 @@ export function Hero() {
           </p>
         </div>
         <div className="hero-panel-cta">
-          {/* TODO: wire to a scheduler or mailto once contact details exist. */}
-          <button type="button" className="btn btn-primary btn-block">
+          <a className="btn btn-primary btn-block" href={DEMO_HREF}>
             Schedule a demo
-          </button>
+          </a>
           <p className="hero-panel-note">
             Madison and Dane County. No cost, no obligation.
           </p>

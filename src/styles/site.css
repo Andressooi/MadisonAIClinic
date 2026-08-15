@@ -494,20 +494,161 @@
   color: var(--color-text-body);
 }
 
-/* — closing — */
+/* — closing / booking — */
 .closing {
   border-top: var(--rule);
   padding: 72px var(--pad-x);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 48px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  align-items: start;
+  gap: 64px;
 }
 
 .closing h2 {
   font-size: clamp(30px, 3.6vw, 44px);
   line-height: 1.09;
+}
+
+.closing-lede p {
+  margin: 28px 0 0;
+  font-size: 16px;
+  line-height: 28px;
+  max-width: 46ch;
+  color: var(--color-text-body);
+}
+
+.closing-lede .kicker {
+  margin-bottom: 18px;
+}
+
+/* — demo form — */
+.demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.demo-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.demo-field label,
+.demo-field legend {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  padding: 0;
+}
+
+.demo-field input[type='text'],
+.demo-field input[type='tel'],
+.demo-field input[type='email'] {
+  font-family: var(--font-body);
+  font-size: 16px; /* below 16px iOS zooms the page on focus */
+  line-height: 24px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: var(--rule);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  width: 100%;
+}
+
+.demo-field input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.demo-field input[aria-invalid='true'] {
+  border-color: var(--color-accent);
+}
+
+/* The method choice reads as one row of two options, not two fields. */
+.demo-choice {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.demo-choice legend {
+  float: left; /* a legend ignores flex layout; floating puts it in the row */
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.demo-choice label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.demo-choice input[type='radio'] {
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.demo-error {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-accent-700);
+}
+
+.demo-error-block {
+  margin-top: calc(var(--space-2) * -1);
+}
+
+.demo-error a {
+  color: inherit;
+}
+
+.demo-form-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--color-text-muted);
+}
+
+/* Off screen rather than display:none — bots skip what is not rendered. */
+.demo-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* <output> is inline by default; the confirmation is a block of two lines. */
+.demo-form-done {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 15.5px;
+  line-height: 27px;
+  color: var(--color-text-secondary);
+}
+
+.demo-form-done-title {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
 }
 
 .site-footer {
@@ -545,6 +686,16 @@
   }
 
   .hero-panel-cta {
+    max-width: 420px;
+  }
+
+  .closing {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  /* Full-bleed inputs on a phone read as a wall; hold the measure. */
+  .demo-form {
     max-width: 420px;
   }
 }

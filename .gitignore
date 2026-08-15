@@ -13,6 +13,10 @@ dist-ssr
 coverage
 *.local
 
+# Secrets — the SMTP app password lives here locally. Never commit these.
+.env
+.env.*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

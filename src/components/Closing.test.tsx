@@ -11,10 +11,17 @@ describe('Closing', () => {
     expect(heading).toHaveTextContent('See what it does before you spend a dollar.')
   })
 
-  it('links the CTA to the shared demo anchor', () => {
+  it('owns the anchor every demo CTA points at', () => {
     render(<Closing />)
 
-    const link = screen.getByRole('link', { name: 'Schedule a demo' })
-    expect(link).toHaveAttribute('href', DEMO_HREF)
+    expect(document.getElementById('demo')).not.toBeNull()
+    expect(DEMO_HREF).toBe('#demo')
+  })
+
+  it('puts the booking form in the closing section', () => {
+    render(<Closing />)
+
+    expect(screen.getByLabelText('Your name')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Request my demo' })).toBeInTheDocument()
   })
 })
