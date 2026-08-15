@@ -520,6 +520,13 @@
   color: var(--color-text-muted);
 }
 
+/* Gap ≥ one cap-height, the clear space the logo kit asks for. */
+.footer-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
 /* ─── responsive ─────────────────────────────────────────────────────── */
 
 @media (max-width: 1080px) {
@@ -592,8 +599,13 @@
     row-gap: var(--space-3);
   }
 
+  /* Step the lockup down so it and the CTA still share one row. */
   .nav-brand {
     margin-right: auto;
+  }
+
+  .nav .logo {
+    --logo-size: 20px;
   }
 
   .nav-links {

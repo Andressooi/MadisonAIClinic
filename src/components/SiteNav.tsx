@@ -1,9 +1,12 @@
 import { DEMO_HREF } from '../lib/demo'
+import { Logo } from './Logo'
 
 export function SiteNav() {
   return (
     <nav className="nav" aria-label="Primary">
-      <span className="nav-brand">MadisonAIClinic</span>
+      <span className="nav-brand">
+        <Logo size={24} />
+      </span>
       <div className="nav-links">
         <a href="#the-shift">The shift</a>
         <a href="#why-now">Why now</a>

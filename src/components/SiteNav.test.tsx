@@ -4,11 +4,11 @@ import { SiteNav } from './SiteNav'
 import { DEMO_HREF } from '../lib/demo'
 
 describe('SiteNav', () => {
-  it('exposes a single labeled primary navigation landmark', () => {
+  it('exposes a single labeled primary navigation landmark with the logo lockup', () => {
     render(<SiteNav />)
 
     expect(screen.getByRole('navigation', { name: 'Primary' })).toBeInTheDocument()
-    expect(screen.getByText('MadisonAIClinic')).toBeInTheDocument()
+    expect(screen.getByText('MadisonAIClinic')).toHaveClass('visually-hidden')
   })
 
   it('links each section anchor to the right id', () => {
