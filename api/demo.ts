@@ -5,7 +5,7 @@ import {
   buildNotificationEmail,
   isBotSubmission,
   validateDemoRequest,
-} from '../src/lib/demoRequest'
+} from '../src/lib/demoRequest.js'
 
 /**
  * Receives a demo request from the booking form and emails it to the clinic.

@@ -6,10 +6,13 @@
     "types": ["node"],
     "skipLibCheck": true,
 
-    /* Vercel bundles these with esbuild, so extensionless imports resolve
-       the same way they do in the app build. */
-    "moduleResolution": "bundler",
-    "module": "esnext",
+    /* Must match how the function actually runs: Vercel compiles api/*.ts to
+       ESM (package.json is type: module) and runs it under plain Node, which
+       requires explicit file extensions on relative imports. "bundler" here
+       accepted extensionless specifiers that then failed at runtime with
+       ERR_MODULE_NOT_FOUND, so nodenext is the honest setting. */
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
