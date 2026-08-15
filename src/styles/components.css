@@ -55,6 +55,43 @@
   text-align: left;
 }
 
+/* — logo lockup —
+   Lowercase wordmark closed by a red square full stop. Kit scale rule: the
+   square is 0.24em with a 0.12em gap, so it tracks the font-size. */
+.logo {
+  --logo-size: 18px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: var(--logo-size);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.logo-stop {
+  display: inline-block;
+  width: 0.24em;
+  height: 0.24em;
+  margin-left: 0.12em;
+  background: var(--color-accent);
+}
+
+/* On red, wordmark and full stop both go white. */
+.logo-on-red {
+  color: #fff;
+}
+
+.logo-on-red .logo-stop {
+  background: #fff;
+}
+
+/* On ink, the wordmark goes white and the red full stop still reads. */
+.logo-on-dark {
+  color: #fff;
+}
+
 /* — navigation — */
 .nav {
   display: flex;
@@ -65,9 +102,7 @@
 }
 
 .nav-brand {
-  font-family: var(--font-heading);
-  font-weight: var(--font-heading-weight);
-  font-size: 18px;
+  display: inline-flex;
   margin-right: auto;
 }
 
