@@ -81,7 +81,13 @@ const server = createServer(async (req, res) => {
   }
 
   const path = url.pathname === '/' ? '/index.html' : url.pathname
-  const file = join(root, normalize(path).replace(/^(\.\.[/\\])+/, ''))
+  let file = join(root, normalize(path).replace(/^(\.\.[/\\])+/, ''))
+
+  // Mirrors vercel.json's cleanUrls: true, so `/products` resolves to
+  // `products.html` locally the same way it does once deployed.
+  if (!extname(file) && !existsSync(file) && existsSync(`${file}.html`)) {
+    file = `${file}.html`
+  }
 
   if (!file.startsWith(root) || !existsSync(file)) {
     res.status(404)

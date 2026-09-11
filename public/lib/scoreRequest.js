@@ -13,12 +13,32 @@
 
 /**
  * Name of the hidden decoy field. A real visitor never sees it, so anything in
- * it identifies the sender as a bot. Named `company` because that is what the
- * bots are looking for — `honeypot` would give the game away.
+ * it identifies the sender as a bot.
+ *
+ * Deliberately not `company` or `organization` — those names match browser and
+ * password-manager autofill heuristics closely enough that a real visitor's
+ * browser can silently fill the trap, which then drops their submission on the
+ * floor with no error shown. The visible label can still say "Company" for a
+ * bot's benefit; only the name/id needs to dodge autofill.
  */
-export const HONEYPOT_FIELD = 'company'
+export const HONEYPOT_FIELD = 'reference_code'
 
 export const LIMITS = { business: 120, website: 200, email: 200 }
+
+/** The five things a visitor can ask for from the one form. */
+export const INTEREST_OPTIONS = [
+  { value: 'free-report', label: 'The Report (free)' },
+  { value: 'advanced-report', label: 'Advanced Report (+$250 add-on)' },
+  { value: 'fixed-for-you', label: 'Fixed For You ($1,500)' },
+  { value: 'full-ecommerce', label: 'Full E-Commerce ($3,500)' },
+  { value: 'ai-automation', label: 'Special AI Automation (custom quote)' },
+]
+
+const INTEREST_VALUES = new Set(INTEREST_OPTIONS.map((option) => option.value))
+
+function interestLabel(value) {
+  return INTEREST_OPTIONS.find((option) => option.value === value)?.label ?? value
+}
 
 /** True when a payload tripped the decoy and should be quietly dropped. */
 export function isBotSubmission(input) {
@@ -73,12 +93,16 @@ export function isEmailish(value) {
 }
 
 /**
- * @returns {{ok: true, value: {business: string, website: string, email: string}}
+ * @returns {{ok: true, value: {interest: string, business: string, website: string, email: string}}
  *          | {ok: false, errors: Record<string, string>}}
  */
 export function validateScoreRequest(input) {
   const source = typeof input === 'object' && input !== null ? input : {}
   const errors = {}
+
+  const interest = text(source.interest)
+  if (interest === '') errors.interest = 'Tell us which one you want.'
+  else if (!INTEREST_VALUES.has(interest)) errors.interest = 'Pick one of the options listed.'
 
   const business = text(source.business)
   if (business === '') errors.business = 'Tell us the name of the business.'
@@ -96,18 +120,19 @@ export function validateScoreRequest(input) {
 
   if (Object.keys(errors).length > 0) return { ok: false, errors }
 
-  return { ok: true, value: { business, website, email } }
+  return { ok: true, value: { interest, business, website, email } }
 }
 
 /** The email that lands in the clinic's inbox. Plain text on purpose. */
 export function buildNotificationEmail(request) {
-  const subject = `Score request — ${request.business}`
+  const subject = `${interestLabel(request.interest)} — ${request.business}`
   const text = [
-    'A new score request came in from madisonaiclinic.com.',
+    'A new request came in from madisonaiclinic.com.',
     '',
-    `Business:  ${request.business}`,
-    `Website:   ${request.website}`,
-    `Email:     ${request.email}`,
+    `Interested in: ${interestLabel(request.interest)}`,
+    `Business:      ${request.business}`,
+    `Website:       ${request.website}`,
+    `Email:         ${request.email}`,
     '',
     'Reply to this message to answer them directly.',
   ].join('\n')

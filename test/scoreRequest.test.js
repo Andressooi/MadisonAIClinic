@@ -9,6 +9,7 @@ import {
 } from '../public/lib/scoreRequest.js'
 
 const good = {
+  interest: 'free-report',
   business: 'Northside Plumbing & Drain',
   website: 'northsideplumbing.com',
   email: 'owner@northsideplumbing.com',
@@ -63,6 +64,7 @@ describe('isEmailish', () => {
 describe('validateScoreRequest', () => {
   it('accepts a filled-in form and hands back trimmed, normalised values', () => {
     const result = validateScoreRequest({
+      interest: 'fixed-for-you',
       business: '  Northside Plumbing & Drain ',
       website: 'northsideplumbing.com',
       email: '  owner@northsideplumbing.com ',
@@ -71,6 +73,7 @@ describe('validateScoreRequest', () => {
     expect(result).toEqual({
       ok: true,
       value: {
+        interest: 'fixed-for-you',
         business: 'Northside Plumbing & Drain',
         website: 'https://northsideplumbing.com/',
         email: 'owner@northsideplumbing.com',
@@ -82,7 +85,14 @@ describe('validateScoreRequest', () => {
     const result = validateScoreRequest({})
 
     expect(result.ok).toBe(false)
-    expect(Object.keys(result.errors).sort()).toEqual(['business', 'email', 'website'])
+    expect(Object.keys(result.errors).sort()).toEqual(['business', 'email', 'interest', 'website'])
+  })
+
+  it('rejects an interest that is not one of the five options', () => {
+    const result = validateScoreRequest({ ...good, interest: 'gold-plated-everything' })
+
+    expect(result.ok).toBe(false)
+    expect(result.errors.interest).toMatch(/one of the options/)
   })
 
   it('tells an owner their website is unreadable rather than missing', () => {
@@ -106,14 +116,16 @@ describe('validateScoreRequest', () => {
 })
 
 describe('buildNotificationEmail', () => {
-  it('puts the business in the subject and every field in the body', () => {
+  it('puts the interest and business in the subject and every field in the body', () => {
     const { subject, text } = buildNotificationEmail({
+      interest: 'fixed-for-you',
       business: 'Northside Plumbing & Drain',
       website: 'https://northsideplumbing.com/',
       email: 'owner@northsideplumbing.com',
     })
 
-    expect(subject).toBe('Score request — Northside Plumbing & Drain')
+    expect(subject).toBe('Fixed For You ($1,500) — Northside Plumbing & Drain')
+    expect(text).toContain('Fixed For You ($1,500)')
     expect(text).toContain('https://northsideplumbing.com/')
     expect(text).toContain('owner@northsideplumbing.com')
     expect(text).toContain('Northside Plumbing & Drain')

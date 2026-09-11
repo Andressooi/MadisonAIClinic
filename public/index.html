@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Madison AI Clinic — a free report card for your business</title>
-<meta name="description" content="A panel of customers goes through your business the way real ones do. You get a score out of ten, twenty-two findings and the evidence behind each one. Free in Madison and Dane County.">
+<meta name="description" content="A panel of customers goes through your business the way real ones do. You get a score out of ten, twenty-two findings and the evidence behind each one.">
 <link rel="canonical" href="https://madisonaiclinic.com/">
 <meta name="theme-color" content="#FBF8F3">
 
@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://madisonaiclinic.com/">
 <meta property="og:site_name" content="Madison AI Clinic">
 <meta property="og:title" content="Your business has a score. You've just never seen it.">
-<meta property="og:description" content="A free report card for your business — a score out of ten, twenty-two findings and the evidence behind each one. Madison and Dane County.">
+<meta property="og:description" content="A free report card for your business — a score out of ten, twenty-two findings and the evidence behind each one.">
 <meta property="og:image" content="https://madisonaiclinic.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -31,11 +31,14 @@
 
 <header class="wrap">
   <div class="nav">
-    <div class="nav__mark">
+    <a class="nav__mark" href="/">
       <span class="wordmark">Madison AI Clinic</span>
       <span class="label">Madison, WI</span>
+    </a>
+    <div class="nav__actions wide">
+      <a class="nav__link" href="/products">Products &amp; pricing</a>
+      <a class="btn btn--nav" href="#request">Get my score</a>
     </div>
-    <a class="btn btn--nav wide" href="#request">Get my score</a>
   </div>
 </header>
 
@@ -44,9 +47,8 @@
   <!-- ===== HERO ===== -->
   <section class="wrap hero cols cols--620-420" aria-labelledby="hero-title">
     <div class="stack hero__text">
-      <p class="eyebrow">Free · Madison &amp; Dane County</p>
-      <h1 class="h1" id="hero-title">Your business has a score. <br class="wide"><span class="italic">You&rsquo;ve just never seen it.</span></h1>
-      <p class="lead lead--hero hero__lead">We send a panel of customers through your business the way real ones go &mdash; searching at nine at night, comparing three names, deciding in about eight seconds &mdash; and score what they find out of ten. Then we go and look at the companies worth learning from<span class="wide">, some of them nowhere near you,</span> and write down what they do that you could do by Friday.</p>
+      <h1 class="h1" id="hero-title">Your business has an online score. <br class="wide"><span class="italic">Get yours now, it&rsquo;s free.</span></h1>
+      <p class="lead lead--hero hero__lead">We send a panel of AI agents as customers through your business the way real ones go &mdash; searching at nine at night, comparing three names, deciding in about eight seconds &mdash; and score what they find out of ten. Then we go and look at the companies worth learning from<span class="wide">, some of them nowhere near you,</span> and write down what they do that you could do by Friday.</p>
       <p class="pull">Some owners frame it. Some owners get busy.</p>
       <div class="stack hero__cta">
         <a class="btn btn--hero" href="#request">
@@ -158,7 +160,7 @@
       <div class="cols cols--620-420">
         <div class="stack gap-head">
           <p class="eyebrow">How the score is made</p>
-          <h2 class="h2" id="panel-title">We send in the customers who would never tell you the truth.</h2>
+          <h2 class="h2" id="panel-title">We send in the customers who are happy to tell you what&rsquo;s wrong &mdash; and right.</h2>
         </div>
         <p class="lead">Nobody calls to explain why they hired someone else. They just hire someone else, and you never learn a thing. So we build the customers who will talk &mdash; and then we check every word they say.</p>
       </div>
@@ -438,6 +440,17 @@
 
       <form class="stack form" id="score-form" method="post" action="/api/score" novalidate>
         <div class="field">
+          <label class="label" for="interest">What are you interested in</label>
+          <select id="interest" name="interest" required>
+            <option value="free-report">The Report &mdash; free</option>
+            <option value="advanced-report">Advanced Report &mdash; +$250 add-on</option>
+            <option value="fixed-for-you">Fixed For You &mdash; $1,500</option>
+            <option value="full-ecommerce">Full E-Commerce &mdash; $3,500</option>
+            <option value="ai-automation">Special AI Automation &mdash; custom quote</option>
+          </select>
+          <p class="field__error" id="interest-error" aria-live="polite"></p>
+        </div>
+        <div class="field">
           <label class="label" for="business">Business name</label>
           <input id="business" name="business" type="text" autocomplete="organization" required maxlength="120">
           <p class="field__error" id="business-error" aria-live="polite"></p>
@@ -448,14 +461,14 @@
           <p class="field__error" id="website-error" aria-live="polite"></p>
         </div>
         <div class="field">
-          <label class="label" for="email">Where do we send it</label>
+          <label class="label" for="email">Email</label>
           <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="200">
           <p class="field__error" id="email-error" aria-live="polite"></p>
         </div>
 
         <div class="decoy" aria-hidden="true">
-          <label for="company">Company</label>
-          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+          <label for="reference_code">Company</label>
+          <input id="reference_code" name="reference_code" type="text" tabindex="-1" autocomplete="off">
         </div>
 
         <button class="btn btn--block" type="submit">Send me my score</button>
@@ -467,8 +480,9 @@
       </form>
 
       <div class="stack signup__byline">
-        <p class="label">Who writes it</p>
-        <p class="body"><b>[YOUR NAME]</b> &mdash; [ONE OR TWO PLAIN SENTENCES<span class="wide">: what you did before this, and why Madison</span>]. One person writes every report, which is a limit rather than a feature<span class="wide">: there are only so many I can do in a month</span>.</p>
+        <p class="label">The bet</p>
+        <p class="body"><b>A collective of small business enthusiasts</b> &mdash; our bet is that small businesses are about to take market share back, by closing the gap between what the technology can already do and what a two-truck outfit can actually use, then pointing it at the one thing no chain can copy: a personal, particular experience built for the person calling. AI is what makes that fight fair<span class="wide">: the same leverage a chain buys with a marketing department</span>, a single owner can now buy outright &mdash; lower cost, sharper pricing, showing up right when someone is searching, and more of whatever is already unique and great about the way you work.</p>
+        <p class="pull">We are big fans of your work &mdash; let us be part of your team.</p>
       </div>
     </div>
   </section>
@@ -478,8 +492,8 @@
 <footer class="wrap foot">
   <span>Madison AI Clinic &mdash; Madison, Wisconsin</span>
   <div class="foot__links">
-    <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
-    <a href="tel:[YOUR PHONE]">[YOUR PHONE]</a>
+    <a href="mailto:CustomerSuccess@madisonaiclinic.com">CustomerSuccess@madisonaiclinic.com</a>
+    <a href="tel:+16084000184">(608) 400-0184</a>
   </div>
 </footer>
 
