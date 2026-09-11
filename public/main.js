@@ -1,4 +1,4 @@
-import { HONEYPOT_FIELD, validateScoreRequest } from '/lib/scoreRequest.js'
+import { HONEYPOT_FIELD, INTEREST_OPTIONS, validateScoreRequest } from '/lib/scoreRequest.js'
 
 /**
  * The form.
@@ -15,8 +15,15 @@ const form = document.querySelector('#score-form')
 if (form) {
   const button = form.querySelector('button[type="submit"]')
   const status = form.querySelector('#form-status')
-  const fields = ['business', 'website', 'email']
+  const fields = ['interest', 'business', 'website', 'email']
   let sending = false
+
+  // A product card elsewhere on the site can link here with ?interest=<value>
+  // so the right option is already picked when the form comes into view.
+  const requestedInterest = new URLSearchParams(window.location.search).get('interest')
+  if (requestedInterest && INTEREST_OPTIONS.some((option) => option.value === requestedInterest)) {
+    form.elements.interest.value = requestedInterest
+  }
 
   const showFieldError = (name, message) => {
     const input = form.elements[name]
@@ -74,6 +81,7 @@ if (form) {
     if (sending) return
 
     const payload = {
+      interest: form.elements.interest.value,
       business: form.elements.business.value,
       website: form.elements.website.value,
       email: form.elements.email.value,
