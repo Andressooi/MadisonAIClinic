@@ -294,7 +294,7 @@ a:hover { color: var(--accent); }
 .nav__mark { display: flex; align-items: center; }
 
 .brand { display: flex; align-items: center; gap: 14px; }
-.brand__icon { display: block; height: clamp(30px, calc(30px + 6 * (100vw - 390px) / 730), 36px); width: auto; }
+.brand__icon { display: block; height: clamp(32px, calc(32px + 8 * (100vw - 390px) / 730), 40px); width: auto; }
 .brand__word { display: grid; gap: 6px; }
 .brand .brand__name {
   font-family: 'Playfair Display', Georgia, serif;
@@ -315,6 +315,7 @@ a:hover { color: var(--accent); }
   text-transform: uppercase;
 }
 .brand--sm { gap: 8px; }
+.brand--sm .brand__icon { height: 27px; }
 .brand--sm .brand__word { gap: 3px; }
 .brand--sm .brand__name { font-size: 13px; }
 .brand--sm .brand__sub { font-size: 6px; }
