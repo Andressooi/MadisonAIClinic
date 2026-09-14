@@ -311,7 +311,7 @@ a:hover { color: var(--accent); }
   font-size: clamp(6.5px, calc(6.5px + 1 * (100vw - 390px) / 730), 7.5px);
   letter-spacing: 0.26em;
   line-height: 1;
-  color: #cf2a3d;
+  color: var(--accent);
   text-transform: uppercase;
 }
 .brand--sm { gap: 8px; }
