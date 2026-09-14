@@ -22,7 +22,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:wght@900&family=Archivo:wght@600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -31,9 +31,12 @@
 
 <header class="wrap">
   <div class="nav">
-    <a class="nav__mark" href="/">
-      <span class="wordmark">Madison AI Clinic</span>
-      <span class="label">Madison, WI</span>
+    <a class="nav__mark brand" href="/">
+      <img class="brand__icon" src="/logo-mark.svg" alt="" height="40">
+      <span class="brand__word">
+        <span class="brand__name">Madison</span>
+        <span class="brand__sub">AI Clinic</span>
+      </span>
     </a>
     <div class="nav__actions wide">
       <a class="nav__link" href="/">Back to report</a>
@@ -162,7 +165,13 @@
 </main>
 
 <footer class="wrap foot">
-  <span>Madison AI Clinic &mdash; Madison, Wisconsin</span>
+  <a class="brand brand--sm" href="/">
+    <img class="brand__icon" src="/logo-mark.svg" alt="" height="27">
+    <span class="brand__word">
+      <span class="brand__name">Madison</span>
+      <span class="brand__sub">AI Clinic</span>
+    </span>
+  </a>
   <div class="foot__links">
     <a href="mailto:CustomerSuccess@madisonaiclinic.com">CustomerSuccess@madisonaiclinic.com</a>
     <a href="tel:+16084000184">(608) 400-0184</a>
